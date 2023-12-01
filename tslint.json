@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "noUnusedLocals": true,
+    "importHelpers": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
+    "alwaysStrict": true,
+    "rootDir": "./src",
+    "outDir": "./build",
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/**/*.ts"
+  ],
+  "compileOnSave": false,
+  "exclude": [
+    "node_modules"
+  ]
+}

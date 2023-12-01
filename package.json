@@ -1,0 +1,44 @@
+{
+  "name": "advent-of-code-2023",
+  "version": "1.0.0",
+  "description": "Advent of Code 2023 solutions in TypeScript",
+  "main": "build/main.js",
+  "bin": {
+    "aoc": "./build/main.js"
+  },
+  "scripts": {
+    "start": "node build/main.js",
+    "profile": "node --prof build/main.js",
+    "predev": "npm run build",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/main.ts",
+    "prebuild": "rm -rf ./build",
+    "build": "tsc -p . && find ./src ! -name '*.ts' -type f | xargs cp -t build/",
+    "create": "npm run build && npm run test",
+    "local": "sudo npm i -g && aoc",
+    "refresh": "rm -rf ./node_modules ./package-lock.json && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sataaa/advent-of-code-2023.git"
+  },
+  "author": "sata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sataaa/advent-of-code-2023/issues"
+  },
+  "homepage": "https://github.com/sataaa/advent-of-code-2023#readme",
+  "dependencies": {
+    "clear": "^0.1.0",
+    "commander": "^8.3.0",
+    "figlet": "^1.5.2",
+    "performance-now": "^2.1.0"
+  },
+  "devDependencies": {
+    "@types/clear": "^0.1.2",
+    "@types/figlet": "^1.5.4",
+    "@types/node": "^16.11.11",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}
