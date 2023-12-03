@@ -3,13 +3,14 @@ import figlet from 'figlet';
 import { AbstractDay } from './days/AbstractDay';
 import { Day01 } from './days/Day0X/Day01';
 import { Day02 } from './days/Day0X/Day02';
+import { Day03 } from './days/Day0X/Day03';
 
 
 export class AdventOfCode {
-  private day: number = 2
+  private day: number = 3
 
   readonly reference: AbstractDay[] = 
-    [new Day01(), new Day02()];
+    [new Day01(), new Day02(), new Day03()];
 
   main(): void {
     clear();
