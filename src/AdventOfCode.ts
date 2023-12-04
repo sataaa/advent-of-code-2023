@@ -4,13 +4,14 @@ import { AbstractDay } from './days/AbstractDay';
 import { Day01 } from './days/Day0X/Day01';
 import { Day02 } from './days/Day0X/Day02';
 import { Day03 } from './days/Day0X/Day03';
+import { Day04 } from './days/Day0X/Day04';
 
 
 export class AdventOfCode {
-  private day: number = 3
+  private day: number = 4
 
   readonly reference: AbstractDay[] = 
-    [new Day01(), new Day02(), new Day03()];
+    [new Day01(), new Day02(), new Day03(), new Day04()];
 
   main(): void {
     clear();
