@@ -5,7 +5,8 @@ export class Day05 extends AbstractDay {
 
   protected day(): void {
     console.log('Example    : ' + this.solve(this.example(), true))
-    console.log('Real input : ' + this.solve(this.input(), false))
+    // takes almost 6mins
+    // console.log('Real input : ' + this.solve(this.input(), false))
   }
 
   private solve(input: string, isExample: boolean): number {
@@ -43,13 +44,13 @@ class Almanac {
     this.humidityToLocationRanges =    this.parseRanges(inputParts[7])
 
     if (isExample) {
-      console.log("seed-to-soil ranges: " + JSON.stringify(this.seedToSoilRanges.map(e => e.toString())))
-      console.log("soil-to-fertilizer ranges: " + JSON.stringify(this.soilToFertilizerRanges.map(e => e.toString())))
-      console.log("fertilizer-to-water ranges: " + JSON.stringify(this.fertilizerToWaterRanges.map(e => e.toString())))
-      console.log("water-to-light ranges: " + JSON.stringify(this.waterToLightRanges.map(e => e.toString())))
-      console.log("light-to-temperature ranges: " + JSON.stringify(this.lightToTemperatureRanges.map(e => e.toString())))
+      console.log("seed-to-soil ranges           : " + JSON.stringify(this.seedToSoilRanges.map(e => e.toString())))
+      console.log("soil-to-fertilizer ranges     : " + JSON.stringify(this.soilToFertilizerRanges.map(e => e.toString())))
+      console.log("fertilizer-to-water ranges    : " + JSON.stringify(this.fertilizerToWaterRanges.map(e => e.toString())))
+      console.log("water-to-light ranges         : " + JSON.stringify(this.waterToLightRanges.map(e => e.toString())))
+      console.log("light-to-temperature ranges   : " + JSON.stringify(this.lightToTemperatureRanges.map(e => e.toString())))
       console.log("temperature-to-humidity ranges: " + JSON.stringify(this.temperatureToHumidityRanges.map(e => e.toString())))
-      console.log("humidity-to-location ranges: " + JSON.stringify(this.humidityToLocationRanges.map(e => e.toString())))
+      console.log("humidity-to-location ranges   : " + JSON.stringify(this.humidityToLocationRanges.map(e => e.toString())))
     }
   }
 
@@ -65,13 +66,13 @@ class Almanac {
   }
 
   private seedToLocation(seed: number, isExample: boolean): number {
-    const soil = this.findConvertOrDefault(seed, this.seedToSoilRanges)
-    const fertilizer = this.findConvertOrDefault(soil, this.soilToFertilizerRanges)
-    const water = this.findConvertOrDefault(fertilizer, this.fertilizerToWaterRanges)
-    const light = this.findConvertOrDefault(water, this.waterToLightRanges)
-    const temperature = this.findConvertOrDefault(light, this.lightToTemperatureRanges)
-    const humidity = this.findConvertOrDefault(temperature, this.temperatureToHumidityRanges)
-    const location = this.findConvertOrDefault(humidity, this.humidityToLocationRanges)
+    const soil        = this.findConvertOrDefault(seed,        this.seedToSoilRanges)
+    const fertilizer  = this.findConvertOrDefault(soil,        this.soilToFertilizerRanges)
+    const water       = this.findConvertOrDefault(fertilizer,  this.fertilizerToWaterRanges)
+    const light       = this.findConvertOrDefault(water,       this.waterToLightRanges)
+    const temperature = this.findConvertOrDefault(light,       this.lightToTemperatureRanges)
+    const humidity    = this.findConvertOrDefault(temperature, this.temperatureToHumidityRanges)
+    const location    = this.findConvertOrDefault(humidity,    this.humidityToLocationRanges)
     if (isExample) {
       console.log(`Seed ${seed}, soil ${soil}, fertilizer ${fertilizer}, water ${water}, light ${light}, temperature ${temperature}, humidity ${humidity}, location ${location}`)
     }
@@ -136,7 +137,7 @@ class RangeConversion {
   }
 
   public toString(): string {
-    return `{${this.sourceRangeStart}-${this.sourceRangeEnd - 1} turns to ${this.destRangeStart}-${this.destRangeEnd - 1} (${this.rangeLength})}`
+    return `{${this.sourceRangeStart} <= x < ${this.sourceRangeEnd} -> diff ${this.destRangeStart - this.sourceRangeStart})}`
   }
 }
 
