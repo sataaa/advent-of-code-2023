@@ -6,24 +6,36 @@ export abstract class AbstractDay {
   abstract dayNumber: number;
 
   main(): void {
-    let startTime: number = now();
+    const startTime: number = now();
     this.day();
-    let endTime: number = now();
+    const endTime: number = now();
 
-    console.info("Day " + this.dayNumber + " execution took " + (endTime - startTime) + "ms.");
+    console.info(`Day ${this.dayNumber} execution took ${this.formatTime(endTime - startTime)}.`);
   }
 
   protected input(): string {
-    let fileName: string = "build/" + this.getDayName() + ".input";
+    const fileName: string = `build/${this.getDayName()}.input`
     return fs.readFileSync(fileName, 'utf-8');
   }
 
   protected example(suffix?: string): string {
-    let fileName: string = "build/" + this.getDayName() + ".example" + (suffix || "");
+    let fileName: string = `build/${this.getDayName()}.example${suffix || ''}`;
     return fs.readFileSync(fileName, 'utf-8');
   }
 
   private getDayName(): string {
-    return this.dayNumber < 10 ? "Day0" + this.dayNumber : "Day" + this.dayNumber;
+    return `Day${this.dayNumber < 10 ? 0 : ''}${this.dayNumber}`;
+  }
+
+  private formatTime(elapsed: number): string {
+    if (elapsed > 60000) {
+      return (Math.round(elapsed/60)/1000) + 'mins';
+    }
+
+    if (elapsed > 1000) {
+      return (Math.round(elapsed)/1000) + 's';
+    }
+
+    return Math.round(elapsed*1000)/1000 + 'ms';
   }
 }
