@@ -8,14 +8,15 @@ import { Day04 } from './days/Day0X/Day04';
 import { Day05 } from './days/Day0X/Day05';
 import { Day06 } from './days/Day0X/Day06';
 import { Day07 } from './days/Day0X/Day07';
+import { Day08 } from './days/Day0X/Day08';
 
 
 export class AdventOfCode {
-  private day: number = 7
+  private day: number = 8
 
   readonly reference: AbstractDay[] = 
     [new Day01(), new Day02(), new Day03(), new Day04(), new Day05(), 
-      new Day06(), new Day07()];
+      new Day06(), new Day07(), new Day08()];
 
   main(): void {
     clear();
