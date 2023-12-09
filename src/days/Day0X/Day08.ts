@@ -6,9 +6,9 @@ export class Day08 extends AbstractDay {
   protected day(): void {
     console.log('Example 1  : ' + this.solve(this.example('1'), false, true));
     console.log('Example 2  : ' + this.solve(this.example('2'), false, true));
-    console.log('Real input : ' + this.solve(this.input(), false, false));
-    console.log('Example 3  : ' + this.solve(this.example('3'), true, true));
-    console.log('Real input : ' + this.solve(this.input(), true, false));
+    console.log('Real input : ' + this.solve(this.input(),      false, false));
+    console.log('Example 3  : ' + this.solve(this.example('3'), true,  true));
+    console.log('Real input : ' + this.solve(this.input(),      true,  false));
   }
 
   private solve(input: string, isPart2: boolean, isExample: boolean): number {
