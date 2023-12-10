@@ -14,7 +14,6 @@ export class Day09 extends AbstractDay {
     return input.split('\n')
       .map(valueHistory => valueHistory.split(' ').map(n => +n))
       .map(valueHistory => {
-
         const nextVal = this.findNextValue(valueHistory, isPartOne);
         if (isExample) {
           console.log(`${isPartOne? 'Next' : 'Previous'} val for the history ${valueHistory} is ${nextVal}`);
