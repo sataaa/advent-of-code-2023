@@ -4,8 +4,7 @@ export class Day12 extends AbstractDay {
   dayNumber = 12
 
   protected day(): void {
-    // console.log('Example    p1: ' + this.solve(this.example(), true, true));
-    console.log('Example    p1: ' + this.solve(this.example('1'), true, true));
+    console.log('Example    p1: ' + this.solve(this.example(), true, true));
     console.log('Real input p1: ' + this.solve(this.input(), false, true));
     console.log('Example    p2: ' + this.solve(this.example(), false, false));
     console.log('Real input p2: ' + this.solve(this.input(), false, false));
@@ -131,14 +130,6 @@ class SpringRow {
       // if it is a #, then we got 0 matches down this road
     }
     return 0;
-  }
-
-  wait(ms: number) {
-    const start = Date.now();
-    let now = start;
-    while (now - start < ms) {
-      now = Date.now();
-    }
   }
 
   calculateOrGet(newInput: string, isExample: boolean): number {
