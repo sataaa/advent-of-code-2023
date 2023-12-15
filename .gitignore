@@ -1,5 +1,5 @@
 # prod data
-*.input
+*.input*
 build
 
 # Logs

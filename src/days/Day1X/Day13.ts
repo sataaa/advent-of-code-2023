@@ -3,9 +3,6 @@ import { AbstractDay } from '../AbstractDay';
 export class Day13 extends AbstractDay {
   dayNumber = 13
 
-  static readonly ROCK: string = '#'
-  static readonly ASH: string = '.'
-
   protected day(): void {
     console.log('Example      : ' + this.solve(this.example(), true, false));
     console.log('Real input   : ' + this.solve(this.input(), false, false));
