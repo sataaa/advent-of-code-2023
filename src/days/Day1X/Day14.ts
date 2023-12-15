@@ -4,17 +4,14 @@ import { AbstractDay } from '../AbstractDay';
 export class Day14 extends AbstractDay {
   dayNumber = 14
 
-  static readonly ROCK: string = '#'
-  static readonly ASH: string = '.'
-
   protected day(): void {
-    console.log('Example      : ' + this.solve(this.example(), true));
-    console.log('Real input   : ' + this.solve(this.input(), false));
+    console.log('Example      : ' + this.solve(this.example()));
+    console.log('Real input   : ' + this.solve(this.input()));
   }
 
-  private solve(input: string, isExample: boolean): number {
+  private solve(input: string): number {
     let platform: Dish = new Dish(input);
-    platform.tiltNorth(isExample);
+    platform.tiltNorth();
     console.log('Part 1       : ' + platform.calculateNorthLoad());
 
     platform = new Dish(input);
@@ -42,7 +39,7 @@ export class Day14 extends AbstractDay {
       platform.spinCycle();
       loopSize++;
     }
-    // walk that many more steps (-1 because we already walked 1 more)
+    // walk the remaining steps needed (-1 because we already walked 1 more)
     for (let j = 0; j < (maxLoop - diff - 1) % loopSize; j++) {
       platform.spinCycle();
     }
@@ -58,7 +55,7 @@ class Dish {
   }
 
   spinCycle(): void {
-    this.tiltNorth(false);
+    this.tiltNorth();
     this.tiltWest();
     this.tiltSouth();
     this.tiltEast();
@@ -106,7 +103,7 @@ class Dish {
     }
   }
 
-  tiltNorth(isExample: boolean): void {
+  tiltNorth(): void {
     for (let i = 1; i < this.platform.length; i++) {
       for (let j = 0; j < this.platform[0].length; j++) {
         if (this.platform[i][j] === 'O') {
