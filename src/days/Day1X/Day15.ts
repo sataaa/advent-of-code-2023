@@ -10,10 +10,6 @@ export class Day15 extends AbstractDay {
 
   private solve(input: string, isExample: boolean): number {
     const instructions = input.split(',');
-    console.log('Part 1       : ' 
-      + instructions.map(step => this.calculateHash(step))
-                    .reduce((a, b) => a + b));
-    
     const boxes: Box[] = new Array<Box>(256);
     for (let i = 0; i < 256; i++) {
       boxes[i] = new Box();
@@ -22,7 +18,7 @@ export class Day15 extends AbstractDay {
       if (instruction.includes('=')) {
         const parts = instruction.split('=');
         boxes[this.calculateHash(parts[0])].placeLens(parts[0], +parts[1]);
-      } else { // endsWIth('-')
+      } else { // endsWith('-')
         const label = instruction.split('-')[0];
         boxes[this.calculateHash(label)].removeLens(label)
       }
@@ -37,6 +33,9 @@ export class Day15 extends AbstractDay {
         boxesSum += (i + 1) * (j + 1) * boxes[i].slots[j].focalLen
       }
     }
+    console.log('Part 1       : '
+      + instructions.map(step => this.calculateHash(step))
+        .reduce((a, b) => a + b));
     return boxesSum
   }
 

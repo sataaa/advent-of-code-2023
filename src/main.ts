@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { AdventOfCode } from './AdventOfCode'
 
 class Main {
